@@ -2,18 +2,19 @@ require 'shoulda-matchers'
 require 'todays_plan'
 require 'webmock/rspec'
 
-
-if (File.exists?('todays_plan.yml'))
+CONFIG={}
+if File.exists?('todays_plan.yml')
   CONFIG=YAML.load(ERB.new(File.read("todays_plan.yml")).result)
 end
+
 TodaysPlan.configure do |config|
   config.username = CONFIG["username"] ||= 'id'
   config.password = CONFIG["password"] ||= 'secret'
   #config.endpoint = 'https://whats.todaysplan.com.au/rest/'
-  config.timeout = CONFIG["timeout"]
-  config.logger = CONFIG["logger"]
-  config.debug = CONFIG["debug"]
-end
+  config.timeout = CONFIG["timeout"] ||= 120
+  config.logger = CONFIG["logger"] ||= nil
+  config.debug = CONFIG["debug"] ||= false
+end 
 
 WebMock.allow_net_connect! if TodaysPlan.debug
 

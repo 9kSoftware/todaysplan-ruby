@@ -14,7 +14,7 @@ describe TodaysPlan do
   end
   
   it "expect default timeout" do
-    expect(TodaysPlan.timeout).to eq 10
+    expect(TodaysPlan.timeout).to eq 120
   end
 
   it "expect default logger" do

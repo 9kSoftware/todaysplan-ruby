@@ -27,7 +27,7 @@ module TodaysPlan
     
     #set default timeout
     def timeout
-      @timeout ||= 10 #rest-client default
+      @timeout ||= 120 #rest-client default
     end
     
     #set default logger
