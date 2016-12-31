@@ -1,0 +1,43 @@
+{
+  "cnt": 1.0,
+  "offset": 0.0,
+  "result": {
+    "fields": {},
+    "results": [
+      {
+        "id": 60390.0,
+        "scheduled": {
+          "name": "Efforts",
+          "day": 1
+        },
+        "source": "file",
+        "user": {
+          "id": 64.0,
+          "dob": 4.853952E11,
+          "firstname": "Joe",
+          "lastname": "Athlete",
+          "isPremium": true
+        },
+        "name": "Efforts",
+        "workoutId": 46.0,
+        "activityId": 46.0,
+        "activity": "workouts",
+        "ts": 1.4786712E12,
+        "tz": "Europe/Madrid",
+        "type": "ride",
+        "equipment": "road",
+        "workout": "training",
+        "permissions": [
+          "edit1",
+          "del",
+          "edit2",
+          "view2",
+          "view1",
+          "view3",
+          "edit3"
+        ]
+      }
+    ],
+    "keys": []
+  }
+}

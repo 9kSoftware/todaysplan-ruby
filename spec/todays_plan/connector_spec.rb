@@ -1,0 +1,41 @@
+require 'spec_helper'
+
+describe TodaysPlan::Connector do
+
+  let(:username){TodaysPlan.username}
+  let(:password){TodaysPlan.password}
+  let(:client){TodaysPlan::Client.new(username, password)}
+  
+  
+  it "expect create new connect without client" do
+    client = double
+    expect(TodaysPlan::Client).to receive(:new).with(username, password).and_return(client)
+    conn = TodaysPlan::Connector.new("/test")
+    expect(conn.client).to eq client
+    expect(conn.uri).to eq TodaysPlan.endpoint + "/test"
+    expect(conn.timeout).to eq TodaysPlan.timeout
+  end
+  
+  it "expect to create new connect with client" do
+    client = double(token: 'abc-123')
+    expect(TodaysPlan::Client).to_not receive(:new)
+    TodaysPlan::Connector.new("/test", client)
+  end
+  
+  it "expect rest-client get request" do
+    response = double(body: '{"message":"test"}')
+    client = double(token: 'abc-123')
+    expect(TodaysPlan::Client).to receive(:new).with(username, password).and_return(client)
+    expect(RestClient::Request).to receive(:execute).and_return(response)
+    expect(TodaysPlan::Connector.new("/test",).get()).to eq({"message"=>"test"})
+  end
+  it "expect rest-client post request" do
+    response = double(body: '{"message":"test"}')
+    client = double(token: 'abc-123')
+    expect(TodaysPlan::Client).to receive(:new).with(username, password).and_return(client)
+    expect(RestClient::Request).to receive(:execute).and_return(response)
+    expect(TodaysPlan::Connector.new("/test",).post()).to eq({"message"=>"test"})
+  end
+ 
+
+end

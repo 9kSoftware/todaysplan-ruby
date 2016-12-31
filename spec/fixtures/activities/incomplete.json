@@ -1,0 +1,20 @@
+{
+    "criteria": {
+        "fromTs": 1451566800000,
+        "toTs": 1496239200000,
+        "isNull": [
+            "fileId"
+        ],
+        "excludeWorkouts": [
+            "rest"
+        ]
+    },
+    "fields": [
+        "scheduled.name",
+        "scheduled.day",
+        "workout",
+        "state",
+        "reason"
+    ],
+    "opts": 1
+}

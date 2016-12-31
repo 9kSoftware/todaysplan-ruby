@@ -1,0 +1,25 @@
+[{
+        "_name": "Joe Athlete",
+        "id": 7187033,
+        "email": "joeathlete@example.com",
+        "md5": "df1cc92fbe295b86fdceb070d5458e84",
+        "dob": 315532800000,
+        "_dob-display": "1/1/80",
+        "firstname": "Joe",
+        "lastname": "Athlete",
+        "timezone": "US/Mountain",
+        "relationship": "coach",
+        "_relationship-display": "Coach",
+        "isPremium": false,
+        "hasPwr": false,
+        "hasBpm": false,
+        "lastLogin": 1478439753344,
+        "_lastLogin-display": "11/6/16 6:42 AM",
+        "coach": {
+            "id": 7187033
+        },
+        "schedulePref": "prefer_single",
+        "_schedulePref-display": "Single sessions",
+        "roles": ["pi", "user"],
+        "attsMask": 514
+    }]
