@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    todays_plan (0.1.0)
+    todaysplan (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -69,7 +69,7 @@ DEPENDENCIES
   rest-client
   rspec
   shoulda-matchers
-  todays_plan!
+  todaysplan!
   webmock
 
 BUNDLED WITH
