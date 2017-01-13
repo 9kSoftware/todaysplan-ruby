@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/9kSoftware/todaysplan-ruby.svg?branch=master)](https://travis-ci.org/9kSoftware/todaysplan-ruby)
 # todaysplan-ruby
 A Ruby Library for TodaysPlan
 
