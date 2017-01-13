@@ -3,7 +3,8 @@ require 'spec_helper'
 describe TodaysPlan::Activity do
 
 
-  let(:json){File.read("spec/fixtures/activities/incomplete.json")}
+  #let(:json){File.read("spec/fixtures/activities/incomplete.json")}
+  let(:json){'{"criteria":{"fromTs":1482735600000.0,"toTs":1486364400000.0,"userIds":[7184519]},"fields":["scheduled.name","scheduled.day","workout","state","reason"],"opts":1}'}
   let(:response){File.read("spec/fixtures/activities/incomplete_response.json")}
   
   it "expect to get incomplete activites" do

@@ -7,14 +7,26 @@ module TodaysPlan
     attr_reader :athlete_id
     attr_reader :name
     attr_reader :state
-    attr_reader :date
+    attr_reader :ts
+    attr_reader :type
+    attr_reader :completed_time
+    attr_reader :planned_time
+    attr_reader :description
+    attr_reader :completed_tscorepwr
+    attr_reader :planned_tscorepwr
     
     def initialize(fields)
       @id = fields['id'].to_i
       @athlete_id = fields['user']['id'].to_i
       @name = fields['name']
       @state = fields['state']
-      @date = Time.at(fields['ts'].to_i/1000)
+      @ts = Time.at(fields['ts'].to_i/1000).to_i
+      @type = fields['type']
+      @completed_time = fields["training"]
+      @planned_time = fields.has_key?('scheduled') ? fields['scheduled']["durationSecs"] : nil
+      @description = fields.has_key?('scheduled')? fields['scheduled']["preDescr"] : nil
+      @completed_tscorepwr = fields["tscorepwr"]
+      @planned_tscorepwr = fields.has_key?('scheduled')? fields['scheduled']["tscorepwr"] : nil
     end
     
     

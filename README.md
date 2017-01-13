@@ -18,12 +18,12 @@ To authenticate with TodaysPlan API by setting the username and password variabl
 ```ruby
 TodaysPlan.username = 'email@example.com'
 TodaysPlan.password = 'secret'
-athletes = TodaysPlan::Athletes.all
+athletes = TodaysPlan::Athlete.all
 ```
 or create a TodaysPlan client and pass the client to the method
 ```ruby
 client = TodaysPlan::Client.new('email@example.com','secret')
-athletes = TodaysPlan::Athletes.all(client)
+athletes = TodaysPlan::Athlete.all(client)
 ```
 
 ### Testing
