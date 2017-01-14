@@ -1,0 +1,22 @@
+{
+    "id": 8765,
+    "coach": {
+        "_name": "coach John",
+        "id": 5678,
+        "email": "coach@example.com",
+        "firstname": "Coach",
+        "lastname": "John"
+    },
+    "client": {
+        "_name": "joe athlete",
+        "id": 1234,
+        "email": "joeathlete@example.com",
+        "firstname": "joe",
+        "lastname": "athlete",
+        "isPremium": true
+    },
+    "state": "pending_coach",
+    "_state-display": "Pending",
+    "relationship": "coach",
+    "_relationship-display": "Coach"
+}

@@ -25,9 +25,7 @@ module TodaysPlan
     end
       
     # Find a single athlete 
-    # +client+:: the authenticated client
     # +id+:: the athlete id
-    # +options+:: has of options
     def self.find(id)      
       all().find{|a| a.id==id}
     end
@@ -38,6 +36,41 @@ module TodaysPlan
       Connector.new('/users/delegates/users', client).get.map do |data|
         new(data)
       end
+    end
+    
+    # Create new Athlete\
+    # options 
+    #   user_email - email address of new user
+    #   firstname - first name of new user
+    #   lastname - last name of new user
+    #   password - password of new user
+    #   coach_email - coach email in todaysplan
+    def self.create(options, client = nil)
+
+      #preregister
+      response = RestClient.get("#{TodaysPlan.endpoint}/auth/preregister")
+
+      # register the user
+      payload = {email: options[:user_email], firstname: options[:first_name],
+        lastname: options[:last_name], password: options[:password]}
+      response = RestClient.post("#{TodaysPlan.endpoint}/auth/register",payload.to_json,
+        { content_type: :json})
+      response.body
+      athlete = new(JSON.parse(response.body))
+      # user invites coach
+      user_client = TodaysPlan::Client.new(options[:user_email], options[:password])
+      invite={"email"=>options[:coach_email],"state"=> "pending_coach", 
+        "relationship"=> "coach"}.to_json
+      response = Connector.new('/users/delegates/invite', user_client).post(invite)
+      
+      # find invitation and accept
+      Connector.new('/users/delegates/search/0/100', client).
+        post({ "state"=> "pending_coach"}.to_json)["results"].each do |result|
+        id = result["id"]
+        Connector.new("/users/delegates/invite/accept/#{id}", client).get() 
+        
+      end
+      athlete
     end
   end
 end

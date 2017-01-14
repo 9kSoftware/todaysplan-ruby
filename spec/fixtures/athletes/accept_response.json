@@ -1,0 +1,27 @@
+{
+    "id": 7171264,
+    "coach": {
+        "_name": "Coach Joh",
+        "id": 7186982,
+        "email": "curt@mtbcoach.com",
+        "firstname": "Curt",
+        "lastname": "Wilhelm",
+        "isPremium": true
+    },
+    "client": {
+        "_name": "curt wilhelm",
+        "id": 7189071,
+        "email": "curt+1@mtbcoach.com",
+        "dob": 315532800000,
+        "_dob-display": "1/1/80",
+        "firstname": "curt",
+        "lastname": "wilhelm",
+        "relationship": "coach",
+        "_relationship-display": "Coach",
+        "isPremium": true
+    },
+    "state": "active",
+    "_state-display": "Active",
+    "relationship": "coach",
+    "_relationship-display": "Coach"
+}

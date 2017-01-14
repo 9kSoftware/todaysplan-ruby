@@ -1,0 +1,8 @@
+## YAML Template.
+---
+username: curt@mtbcoach.com
+password: my$m2fsx
+endpoint:
+timeout: 
+logger: 'stdout'
+debug: true

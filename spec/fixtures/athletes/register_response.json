@@ -1,0 +1,14 @@
+{
+    "email": "joeathlete@example.com",
+    "uuid": "yyyy",
+    "firstname": "joe",
+    "lastname": "athlete",
+    "locale": "English (United States)",
+    "timezone": "Etc/UTC",
+    "weekStart": "sun",
+    "_weekStart-display": "Sunday",
+    "stripeId": "xxxx",
+    "prefsMask": 0,
+    "cls": "net.todaysplan.model.users.User",
+    "id": 1234
+}

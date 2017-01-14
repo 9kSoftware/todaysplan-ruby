@@ -1,0 +1,26 @@
+{
+    "cnt": 1,
+    "offset": 0,
+    "results": [{
+            "id": 98765,
+            "coach": {
+                "_name": "Coach John",
+                "id": 5678,
+                "email": "coach@example.com",
+                "firstname": "Coach",
+                "lastname": "john",
+                "isPremium": true
+            },
+            "client": {
+                "_name": "joe athlete",
+                "id": 1234,
+                "email": "joeathlete@example.com",
+                "firstname": "joe",
+                "lastname": "athlete"
+            },
+            "state": "pending_coach",
+            "_state-display": "Pending",
+            "relationship": "coach",
+            "_relationship-display": "Coach"
+        }]
+}
