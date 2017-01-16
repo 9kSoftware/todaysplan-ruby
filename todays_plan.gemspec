@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{lib}/**/*", "LICENSE", "Rakefile", "README.md"]
 
-  
+   
   s.add_development_dependency 'rest-client'
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'shoulda-matchers'

@@ -10,7 +10,7 @@ Pull Request to include additional calls.
 Add the gem to your app
 
 ```ruby
-gem 'todaysplan-ruby'
+gem 'todaysplan-ruby', require: 'todays_plan
 ```
 
 ### Usage
@@ -40,4 +40,3 @@ timeout: 120
 logger: 'stdout'
 debug: true 
 ```
-

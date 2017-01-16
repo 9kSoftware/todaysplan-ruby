@@ -1,8 +1,8 @@
 ## YAML Template.
 ---
-username: curt@mtbcoach.com
+username: curt+todaysplanstaging@mtbcoach.com
 password: my$m2fsx
-endpoint:
+endpoint: https://staging.todaysplan.com.au
 timeout: 
 logger: 'stdout'
 debug: true
