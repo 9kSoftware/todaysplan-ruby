@@ -12,13 +12,13 @@ describe TodaysPlan::Athlete do
     all = TodaysPlan::Athlete.all()
     expect(all).to be_a(Array)
     expect(all[0]).to be_a(TodaysPlan::Athlete)
-    expect(all[0].first_name).to_not be_nil
-    expect(all[0].last_name).to_not be_nil
-    expect(all[0].coach).to_not be_nil
-    expect(all[0].timezone).to_not be_nil
-    expect(all[0].id).to_not be_nil
-    expect(all[0].name).to_not be_nil
-    expect(all[0].email).to_not be_nil
+    expect(all[0].first_name).to eq "Joe"
+    expect(all[0].last_name).to eq "Athlete"
+    expect(all[0].coach).to eq 7187033
+    expect(all[0].timezone).to eq "US/Mountain"
+    expect(all[0].id).to eq 7187033
+    expect(all[0].name).to eq "Joe Athlete"
+    expect(all[0].email).to eq "joeathlete@example.com"
   end
   
   it "expect to get one athlete" do

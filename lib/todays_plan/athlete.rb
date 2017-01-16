@@ -11,6 +11,7 @@ module TodaysPlan
     attr_reader :coach
     attr_reader :email
     attr_reader :dob
+    attr_reader :country
     
 
     def initialize(fields)
@@ -18,10 +19,11 @@ module TodaysPlan
       @name = fields['_name']
       @first_name = fields['firstname']
       @last_name = fields['lastname']
-      @timezone = fields['timezone']
+      @timezone =fields['timezone']
       @coach =  fields['coach']["id"].to_i if fields.has_key?("coach")
       @email = fields['email']
       @dob =  Time.at(fields['dob'].to_i/1000)
+      @country = fields['country']
     end
       
     # Find a single athlete 
@@ -51,8 +53,8 @@ module TodaysPlan
       response = RestClient.get("#{TodaysPlan.endpoint}/auth/preregister")
 
       # register the user
-      payload = {email: options[:user_email], firstname: options[:first_name],
-        lastname: options[:last_name], password: options[:password]}
+      payload = {email: options[:user_email], firstname: options[:firstname],
+        lastname: options[:lastname], password: options[:password]}
       response = RestClient.post("#{TodaysPlan.endpoint}/auth/register",payload.to_json,
         { content_type: :json})
       response.body
