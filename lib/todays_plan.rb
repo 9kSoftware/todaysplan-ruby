@@ -1,7 +1,7 @@
 require 'todays_plan/version'
 require 'todays_plan/client'
 require 'todays_plan/connector'
-require 'todays_plan/athlete'
+require 'todays_plan/user'
 require 'todays_plan/activity'
 require 'todays_plan/errors'
 require 'rest_client'
