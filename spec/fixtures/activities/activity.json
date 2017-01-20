@@ -1,0 +1,116 @@
+{
+    "id": 8753794,
+    "fileIndex": {
+        "id": 8358642,
+        "filename": "GarminConnect-1519675204.fit",
+        "state": "finished",
+        "_state-display": "Finished"
+    },
+    "fileId": 8449445,
+    "cls": "UserWorkout",
+    "activity": "workouts",
+    "_activity-display": "Workout",
+    "day": 1484083666000,
+    "_day-display": "1/10/17",
+    "name": "test workout",
+    "tab": "summary",
+    "equipment": "road",
+    "_equipment-display": "Road",
+    "terrain": [],
+    "type": "ride",
+    "_type-display": "Ride",
+    "workout": "training",
+    "_workout-display": "Training",
+    "review": "pending",
+    "_review-display": "Pending review",
+    "state": "completed",
+    "_state-display": "Complete",
+    "intensityFactor": 80,
+    "iff": 0.0,
+    "_iff-display": "0.00 Intensity",
+    "tabAlerts": {},
+    "tabCounts": {
+        "notices": 0,
+        "notes": 0
+    },
+    "tabHide": {
+        "event": true,
+        "components": true,
+        "gears": true
+    },
+    "targets": {
+        "ascent": {
+            "field": "Ascent",
+            "score": 3
+        },
+        "descent": {
+            "field": "Descent",
+            "score": 3
+        },
+        "tscorepwr": {
+            "display": 94,
+            "completed": 94,
+            "scheduled": 100,
+            "field": "T-Score",
+            "score": 3
+        },
+        "duration": {
+            "display": 5357,
+            "_display-display": "1h:29m",
+            "completed": 5357,
+            "_completed-display": "1h:29m",
+            "scheduled": 7200,
+            "_scheduled-display": "2h",
+            "field": "Duration",
+            "score": 2
+        },
+        "distance": {
+            "field": "Distance",
+            "score": 3
+        }
+    },
+    "user": {
+        "_name": "Curt Wilhelm",
+        "id": 7186982,
+        "email": "curt@mtbcoach.com",
+        "firstname": "Curt",
+        "lastname": "Wilhelm",
+        "isPremium": true
+    },
+    "author": {
+        "_name": "Curt Wilhelm",
+        "id": 7186982,
+        "email": "curt@mtbcoach.com",
+        "firstname": "Curt",
+        "lastname": "Wilhelm",
+        "isPremium": true
+    },
+    "achievementsDirty": false,
+    "achievementsCnt": 1,
+    "permissions": ["del", "view2", "edit2", "view1", "edit1", "view3", "edit3"],
+    "planId": 7195295,
+    "plan": {
+        "id": 7195295,
+        "colour": "#3f2493"
+    },
+    "result": {
+        "locality": "Black Hawk",
+        "reviewMask": 0,
+        "channelMask": 119,
+        "review": "pending",
+        "_review-display": "Pending review"
+    },
+    "tz": "America/Denver",
+    "weather": {
+        "sunrise": 1484058180000,
+        "_sunrise-display": "7:23 AM",
+        "sunset": 1484092560000,
+        "_sunset-display": "4:56 PM",
+        "minTemp": 9,
+        "_minTemp-display": "48°F",
+        "maxTemp": 12,
+        "_maxTemp-display": "53°F"
+    },
+    "favorite": false,
+    "simple": true
+}

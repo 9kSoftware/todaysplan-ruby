@@ -20,4 +20,13 @@ describe TodaysPlan::Activity do
     expect(all[0]).to be_a(TodaysPlan::Activity)
   end
  
+  it "find activity" do
+    stub_request(:get, "#{TodaysPlan.endpoint}/plans/workouts/detailed/8753794").
+      with(:headers => {'Accept'=>'application/json',  
+        'Authorization'=>'Bearer abc-123'}).
+      to_return(:status => 200, :body => File.read("spec/fixtures/activities/activity.json"), :headers => {})
+    activity = TodaysPlan::Activity.find(8753794)
+    expect(activity.id).to eq 8753794
+  end
+  
 end

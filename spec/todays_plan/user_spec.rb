@@ -40,8 +40,8 @@ describe TodaysPlan::User do
   end
 
   it "register user" do
-    options = {user_email: 'joeathlete@example.com', firstname: 'joe',
-      lastname: 'athlete', password:'password', coach_email: 'coach@email.com'}
+    options = {email: 'joeathlete@example.com', firstname: 'joe',
+      lastname: 'athlete', password:'password'}
     # preregister
     stub_request(:get, "#{TodaysPlan.endpoint}/auth/preregister").
       with(:headers => {'Accept'=>'*/*'}).

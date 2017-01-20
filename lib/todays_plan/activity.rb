@@ -4,31 +4,45 @@ module TodaysPlan
   class  Activity
     
     attr_reader :id
+    attr_reader :activity_id
     attr_reader :athlete_id
     attr_reader :name
     attr_reader :state
     attr_reader :ts
     attr_reader :type
     attr_reader :completed_time
-    attr_reader :planned_time
+    attr_reader :scheduled_time
     attr_reader :description
-    attr_reader :completed_tscorepwr
-    attr_reader :planned_tscorepwr
+    attr_reader :tscorepwr
+    attr_reader :scheduled_tscorepwr
+    attr_reader :intensity_factor
+    attr_reader :activity
     
     def initialize(fields)
       @id = fields['id'].to_i
+      @activity_id = fields['activityId'].to_i
       @athlete_id = fields['user']['id'].to_i
       @name = fields['name']
       @state = fields['state']
-      @ts = Time.at(fields['ts'].to_i/1000).to_i
+      @ts = fields['ts'].to_i
       @type = fields['type']
-      @completed_time = fields["training"]
-      @planned_time = fields.has_key?('scheduled') ? fields['scheduled']["durationSecs"] : nil
+      @completed_time = find_completed_time(fields)
+      @scheduled_time = find_planned_time(fields)
       @description = fields.has_key?('scheduled')? fields['scheduled']["preDescr"] : nil
-      @completed_tscorepwr = fields["tscorepwr"]
-      @planned_tscorepwr = fields.has_key?('scheduled')? fields['scheduled']["tscorepwr"] : nil
+      @tscorepwr = find_completed_tscore(fields)
+      @scheduled_tscorepwr = find_planned_tscore(fields)
+      @intensity_factor = fields['iff']
+      @activity = fields['activity']
     end
     
+    # Find the activity
+    # +id+:  the activity id
+    # +activity+: the type of activity to view, workouts or files.  Defaults to workouts
+    # +client+:: the authenticated client
+    def self.find(id, activity="workouts", client = nil)
+      fields = {"activityId"=>id}
+      new(fields.merge(Connector.new("/plans/#{activity}/detailed/#{id}",client).get()))
+    end
     
     # Find all coaches athletes workouts
     # +payload+:: they payload to send to in json format
@@ -60,6 +74,48 @@ module TodaysPlan
       Connector.new("/users/activities/search/#{offset}/#{total}/", client).
         post(payload)['result']['results'].map do |data|
         new(data)
+      end
+    end
+    
+    private
+    
+    def find_completed_tscore(fields)
+      if fields.has_key?('tscorepwr') 
+        fields["tscorepwr"]
+      elsif fields.has_key?('targets') 
+        fields['targets']["tscorepwr"]['completed']
+      else
+        nil
+      end
+    end
+    
+    def find_planned_tscore(fields)
+      if fields.has_key?('scheduled') 
+        fields['scheduled']["tscorepwr"] 
+      elsif fields.has_key?('targets') 
+        fields['targets']["tscorepwr"]['scheduled']
+      else 
+        nil
+      end
+    end
+    
+    def find_planned_time(fields)
+      if fields.has_key?('scheduled') 
+        fields['scheduled']["durationSecs"] 
+      elsif fields.has_key?('targets') 
+        fields['targets']["duration"]['scheduled']
+      else 
+        nil
+      end
+    end
+    
+    def find_completed_time(fields)
+      if fields.has_key?('training') 
+        fields["training"]
+      elsif fields.has_key?('targets') 
+        fields['targets']["duration"]['completed']
+      else
+        nil
       end
     end
       
