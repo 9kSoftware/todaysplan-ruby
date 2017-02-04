@@ -83,7 +83,7 @@ module TodaysPlan
       if fields.has_key?('tscorepwr') 
         fields["tscorepwr"]
       elsif fields.has_key?('targets') 
-        fields['targets']["tscorepwr"]['completed']
+        fields['targets']["tscorepwr"]['completed'] if fields['targets']["tscorepwr"]
       else
         nil
       end
@@ -93,7 +93,7 @@ module TodaysPlan
       if fields.has_key?('scheduled') 
         fields['scheduled']["tscorepwr"] 
       elsif fields.has_key?('targets') 
-        fields['targets']["tscorepwr"]['scheduled']
+        fields['targets']["tscorepwr"]['scheduled'] if fields['targets']["tscorepwr"]
       else 
         nil
       end
